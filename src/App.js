@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import heroImg from "./assets/hero.jpg";
+import orquestra01 from "./assets/orquestra01.jpg";
+import orquestra02 from "./assets/orquestra02.jpg";
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
+import Slider from "./components/Slider";
 
 function App() {
+  const navbarLinks = [
+    { url: "#", title: "Home" },
+    { url: "#", title: "Contato" },
+    { url: "#", title: "O projeto" },
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar navbarLinks={navbarLinks} />
+      <Hero imageSrc={heroImg} />
+      <Slider
+        imageSrc={orquestra01}
+        title={"Aulas de música"}
+        subtitle={
+          "Para todas as idades!"
+        }
+      />
+      <Slider
+        imageSrc={orquestra02}
+        title={"Concertos"}
+        subtitle={"Apresentações de diferentes gêneros musicais"}
+        flipped={true}
+      />
     </div>
   );
 }
